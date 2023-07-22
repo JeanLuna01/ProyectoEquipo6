@@ -57,4 +57,7 @@ public class Cliente {
 		this.factura = factura;
 	}
 
+	public void realizarCompra() {
+		
+	}
 }
