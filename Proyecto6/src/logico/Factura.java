@@ -39,5 +39,9 @@ public class Factura {
 	public void setTotalPagar(double totalPagar) {
 		this.totalPagar = totalPagar;
 	}
+	
+	public void imprimirFactura() {
+		
+	}
 
 }
