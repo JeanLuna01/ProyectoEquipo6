@@ -19,6 +19,8 @@ public class PaqueteCompleto {
         ProductosPaquete = productosPaquete;
     }
 
+    
+    
     public double getTotal() {
         return total;
     }
