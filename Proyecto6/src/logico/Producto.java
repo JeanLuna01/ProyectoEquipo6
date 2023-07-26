@@ -7,7 +7,7 @@ public class Producto {
 	protected double precio;
 	protected int cantidadDisp;
 	protected String numeroSerie;
-	private String tipo;
+	protected String tipo;
 	
 	public Producto(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo) {
 		super();
