@@ -84,6 +84,7 @@ public class Cliente {
 		Carrito.add(producto);
 	}
 	
+	
 	public void realizarCompra() {
 		Factura f1 = new Factura(null,Carrito,0);
 		int c=0;
@@ -95,5 +96,7 @@ public class Cliente {
 			f1.setTotalPagar(f1.getTotalPagar()+f1.getProductosFactura().get(c).getPrecio());
 			c++;
 		}
+		
+		agregarFactura(f1);
 	}
 }
