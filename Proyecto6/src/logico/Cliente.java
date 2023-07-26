@@ -9,6 +9,7 @@ public class Cliente {
 	private String telefono;
 	private Factura factura;
 	private ArrayList<Factura> Myfacturas;
+	private ArrayList<Producto> Carrito;
 	
 	public Cliente(String nombre, String apellido, String direccion, String telefono) {
 		super();
@@ -63,6 +64,14 @@ public class Cliente {
 		return Myfacturas;
 	}
 
+	public ArrayList<Producto> getCarrito() {
+		return Carrito;
+	}
+
+	public void setCarrito(ArrayList<Producto> carrito) {
+		Carrito = carrito;
+	}
+
 	public void agregarFactura(Factura factura) {
 		Myfacturas.add(factura);
 	}
@@ -71,7 +80,20 @@ public class Cliente {
 		Myfacturas.remove(factura);
 	}
 	
+	public void AgregarAlCarrito(Producto producto) {
+		Carrito.add(producto);
+	}
+	
 	public void realizarCompra() {
-		
+		Factura f1 = new Factura(null,Carrito,0);
+		int c=0;
+		while(c<Carrito.size()) {
+			System.out.print("Modelo: ");
+			System.out.print(f1.getProductosFactura().get(c).getModelo());
+			System.out.print("   Precio: ");
+			System.out.println(f1.getProductosFactura().get(c).getPrecio());
+			f1.setTotalPagar(f1.getTotalPagar()+f1.getProductosFactura().get(c).getPrecio());
+			c++;
+		}
 	}
 }
