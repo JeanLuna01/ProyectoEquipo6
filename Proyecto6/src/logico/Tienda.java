@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Tienda {
 	
+	private int c;
 	private ArrayList<Cliente> TiendaClientes;
 	private ArrayList<Factura> TiendaFacturas;
 	private ArrayList<Producto> TiendaProductos;
@@ -66,9 +67,38 @@ public class Tienda {
 	}
 	
 	public void BuscarProducto(String numeroSerie) {
-		int c=0;
+		c=0;
+		while(c<TiendaProductos.size()) {
+			if(TiendaProductos.get(c).getNumeroSerie().equalsIgnoreCase(numeroSerie)) {
+				System.out.print("Marca: ");
+				System.out.println(TiendaProductos.get(c).getMarca());
+				System.out.print("Modelo: ");
+				System.out.println(TiendaProductos.get(c).getModelo());
+				System.out.print("Precio: ");
+				System.out.println(TiendaProductos.get(c).getPrecio());
+				System.out.print("Cantidad Disponible: ");
+				System.out.println(TiendaProductos.get(c).getCantidadDisp());
+				System.out.print("Tipo: ");
+				System.out.println(TiendaProductos.get(c).getTipo());
+			}
+			else {
+				c++;
+			}
 		}
 	}
-
-
+	
+	public void MostrarProductoDisp() {
+		c=0;
+		while(c<TiendaProductos.size()) {
+			if(TiendaProductos.get(c).getCantidadDisp()!=0) {
+				System.out.println(TiendaProductos.get(c).getModelo());
+				c++;
+			}
+			else {
+				c++;
+			}
+		}
+	}
 }
+
+
