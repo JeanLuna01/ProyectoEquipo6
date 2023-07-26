@@ -8,7 +8,7 @@ public class Cliente {
 	private String direccion;
 	private String telefono;
 	private Factura factura;
-	private ArrayList<Factura> facturas;
+	private ArrayList<Factura> Myfacturas;
 	
 	public Cliente(String nombre, String apellido, String direccion, String telefono) {
 		super();
@@ -16,7 +16,7 @@ public class Cliente {
 		this.apellido = apellido;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		facturas = new ArrayList<Factura>();
+		Myfacturas = new ArrayList<Factura>();
 	}
 
 	public String getNombre() {
@@ -60,15 +60,15 @@ public class Cliente {
 	}
 	
 	public ArrayList<Factura> getFacturas() {
-		return facturas;
+		return Myfacturas;
 	}
 
 	public void agregarFactura(Factura factura) {
-		facturas.add(factura);
+		Myfacturas.add(factura);
 	}
 	
 	public void eliminarFactura(Factura factura) {
-		facturas.remove(factura);
+		Myfacturas.remove(factura);
 	}
 	
 	public void realizarCompra() {
