@@ -1,6 +1,6 @@
 package logico;
 
-import java.util.ArrayList;
+import java.util.ArrayList; /*baby don't hurt me*/
 
 public class Cliente {
 
