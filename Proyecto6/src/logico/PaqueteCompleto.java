@@ -1,4 +1,5 @@
 package logico;
+
 import java.util.ArrayList;
 
 public class PaqueteCompleto {
@@ -7,11 +8,7 @@ public class PaqueteCompleto {
 
     public PaqueteCompleto(ArrayList<Producto> productosPaquete) {
         this.productosPaquete = new ArrayList<Producto>(productosPaquete);
-       
-        total = 0;
-        for (Producto producto : productosPaquete) {
-            total += producto.getPrecio();
-        }
+        calcularTotal();
     }
 
     public ArrayList<Producto> getProductosPaquete() {
@@ -20,14 +17,21 @@ public class PaqueteCompleto {
 
     public void setProductosPaquete(ArrayList<Producto> productosPaquete) {
         this.productosPaquete = new ArrayList<Producto>(productosPaquete);
+        calcularTotal();
     }
 
     public double getTotal() {
         return total;
     }
 
-    public double DescuentoPaqueteCompleto() {
-       
+    public double getDescuentoPaqueteCompleto() {
         return total - (total * 0.10);
+    }
+
+    private void calcularTotal() {
+        total = 0;
+        for (Producto producto : productosPaquete) {
+            total += producto.getPrecio();
+        }
     }
 }

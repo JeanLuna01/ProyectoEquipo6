@@ -1,4 +1,5 @@
 package logico;
+
 import java.util.ArrayList;
 
 public class Cliente {
@@ -71,22 +72,28 @@ public class Cliente {
         Myfacturas.remove(factura);
     }
 
-    public void AgregarAlCarrito(Producto producto) {
-        Carrito.add(producto);
+    public void agregarAlCarrito(Producto producto, int cantidad) {
+        for (int i = 0; i < cantidad; i++) {
+            Carrito.add(producto);
+        }
     }
 
     public void realizarCompra() {
-        Factura f1 = new Factura();
+        Factura f1 = new Factura(new ArrayList<PaqueteCompleto>(), new ArrayList<Producto>());
+        for (Producto producto : Carrito) {
+            f1.agregarProducto(producto);
+        }
+
         int c = 0;
         while (c < Carrito.size()) {
             System.out.print("Modelo: ");
-            System.out.print(Carrito.get(c).getModelo());
+            System.out.print(f1.getProductosFactura().get(c).getModelo());
             System.out.print("   Precio: ");
-            System.out.println(Carrito.get(c).getPrecio());
-            f1.agregarProducto(Carrito.get(c));
+            System.out.println(f1.getProductosFactura().get(c).getPrecio());
             c++;
         }
 
         agregarFactura(f1);
     }
 }
+
