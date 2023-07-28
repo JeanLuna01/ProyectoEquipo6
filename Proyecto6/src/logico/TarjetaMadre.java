@@ -7,8 +7,7 @@ public class TarjetaMadre extends Producto {
 	private String tipoConexionesParaDiscoDuro;
 	
 	public TarjetaMadre(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo, String tipoConectorParaSocket, String tipoMemoriaRam, String tipoConexionesParaDiscoDuro) {
-		super(marca, modelo, tipoConexionesParaDiscoDuro, precio, cantidadDisp, numeroSerie, tipo);
-		
+		super(marca, modelo, precio, cantidadDisp, numeroSerie, tipo);
 		this.tipoConectorParaSocket = tipoConectorParaSocket;
 		this.tipoMemoriaRam = tipoMemoriaRam;
 		this.tipoConexionesParaDiscoDuro = tipoConexionesParaDiscoDuro;

@@ -7,13 +7,13 @@ public class Tienda {
     private ArrayList<Cliente> TiendaClientes;
     private ArrayList<Factura> TiendaFacturas;
     private ArrayList<Producto> TiendaProductos;
-    private ArrayList<PaqueteCompleto> TiendaPaquetesCompletos;
+    private ArrayList<Combo> TiendaCombos;
 
     public Tienda() {
         TiendaClientes = new ArrayList<Cliente>();
         TiendaFacturas = new ArrayList<Factura>();
         TiendaProductos = new ArrayList<Producto>();
-        TiendaPaquetesCompletos = new ArrayList<PaqueteCompleto>();
+        TiendaCombos = new ArrayList<Combo>();
     }
 
     public ArrayList<Cliente> getTiendaClientes() {
@@ -40,12 +40,12 @@ public class Tienda {
         TiendaProductos = tiendaProductos;
     }
 
-    public ArrayList<PaqueteCompleto> getTiendaPaquetesCompletos() {
-        return TiendaPaquetesCompletos;
+    public ArrayList<Combo> getTiendaPaquetesCompletos() {
+        return TiendaCombos;
     }
 
-    public void setTiendaPaquetesCompletos(ArrayList<PaqueteCompleto> tiendaPaquetesCompletos) {
-        TiendaPaquetesCompletos = tiendaPaquetesCompletos;
+    public void setTiendaPaquetesCompletos(ArrayList<Combo> tiendaPaquetesCompletos) {
+        TiendaCombos = tiendaPaquetesCompletos;
     }
 
     public void AgregarProducto(Producto producto) {
@@ -55,12 +55,20 @@ public class Tienda {
     public void EliminarProducto(Producto producto) {
         TiendaProductos.remove(producto);
     }
+    
+    public void AgregarCombo(Combo combo) {
+    	TiendaCombos.add(combo);
+    }
+    
+    public void EliminarCombo(Combo combo) {
+    	TiendaCombos.remove(combo);
+    }
 
     public void AgregarCliente(Cliente cliente) {
         if (!TiendaClientes.contains(cliente)) {
             TiendaClientes.add(cliente);
         } else {
-            System.out.println("El cliente ya existe en la tienda.");
+            System.out.println("El cliente "+cliente.getNombre()+" ya existe en la tienda.");
         }
     }
 

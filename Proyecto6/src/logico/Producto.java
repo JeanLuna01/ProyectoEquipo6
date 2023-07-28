@@ -1,8 +1,7 @@
 package logico;
 
 public class Producto {
-
-    protected String nombre;
+	
     protected String marca;
     protected String modelo;
     protected double precio;
@@ -10,22 +9,14 @@ public class Producto {
     protected String numeroSerie;
     protected String tipo;
 
-    public Producto(String nombre, String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo) {
-        this.nombre = nombre;
+    public Producto(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo) {
+    	super();
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
         this.cantidadDisp = cantidadDisp;
         this.numeroSerie = numeroSerie;
         this.tipo = tipo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getMarca() {

@@ -61,7 +61,7 @@ public class Cliente {
     }
 
     public void setCarrito(ArrayList<Producto> carrito) {
-        Carrito = carrito;
+        this.Carrito = carrito;
     }
 
     public void agregarFactura(Factura factura) {
@@ -75,23 +75,16 @@ public class Cliente {
     public void agregarAlCarrito(Producto producto, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             Carrito.add(producto);
-        }
+}
     }
 
     public void realizarCompra() {
-        Factura f1 = new Factura(new ArrayList<PaqueteCompleto>(), new ArrayList<Producto>());
+        Factura f1 = new Factura(new ArrayList<Combo>(), new ArrayList<Producto>());
         for (Producto producto : Carrito) {
             f1.agregarProducto(producto);
         }
 
-        int c = 0;
-        while (c < Carrito.size()) {
-            System.out.print("Modelo: ");
-            System.out.print(f1.getProductosFactura().get(c).getModelo());
-            System.out.print("   Precio: ");
-            System.out.println(f1.getProductosFactura().get(c).getPrecio());
-            c++;
-        }
+        f1.imprimirFactura();
 
         agregarFactura(f1);
     }

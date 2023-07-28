@@ -3,18 +3,18 @@ package logico;
 import java.util.ArrayList;
 
 public class Factura {
-    private ArrayList<PaqueteCompleto> paquetesCompletosFactura;
+    private ArrayList<Combo> combosFactura;
     private ArrayList<Producto> productosFactura;
     private double totalPagar;
 
-    public Factura(ArrayList<PaqueteCompleto> paquetesCompletosFactura, ArrayList<Producto> productosFactura) {
-        this.paquetesCompletosFactura = paquetesCompletosFactura;
+    public Factura(ArrayList<Combo> combosFactura, ArrayList<Producto> productosFactura) {
+        this.combosFactura = combosFactura;
         this.productosFactura = productosFactura;
         calcularTotalPagar();
     }
 
-    public ArrayList<PaqueteCompleto> getPaquetesCompletosFactura() {
-        return paquetesCompletosFactura;
+    public ArrayList<Combo> getPaquetesCompletosFactura() {
+        return combosFactura;
     }
 
     public ArrayList<Producto> getProductosFactura() {
@@ -25,8 +25,8 @@ public class Factura {
         return totalPagar;
     }
 
-    public void agregarPaqueteCompleto(PaqueteCompleto paqueteCompleto) {
-        paquetesCompletosFactura.add(paqueteCompleto);
+    public void agregarPaqueteCompleto(Combo combo) {
+        combosFactura.add(combo);
         calcularTotalPagar();
     }
 
@@ -35,25 +35,31 @@ public class Factura {
         calcularTotalPagar();
     }
 
-    private void calcularTotalPagar() {
+    public void calcularTotalPagar() {
         totalPagar = 0;
-        for (PaqueteCompleto paquete : paquetesCompletosFactura) {
-            totalPagar += paquete.getDescuentoPaqueteCompleto();
+        for (Combo combo : combosFactura) {
+            totalPagar += combo.getDescuentoCombo();
         }
         for (Producto producto : productosFactura) {
             totalPagar += producto.getPrecio();
         }
     }
 
-    public void imprimirFacturaConDescuento() {
+    public void imprimirFactura() {
         System.out.println("Factura del cliente:");
-        for (PaqueteCompleto paquete : paquetesCompletosFactura) {
+        for (Combo combo : combosFactura) {
             System.out.println(" - Paquete Completo:");
-            for (Producto producto : paquete.getProductosPaquete()) {
+            for (Producto producto : combo.getProductosPaquete()) {
                 System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
             }
-            System.out.println("   - Precio con descuento: " + paquete.getDescuentoPaqueteCompleto());
+            System.out.println("   - Precio con descuento: " + combo.getDescuentoCombo());
         }
-        System.out.println("Total a pagar con descuento: " + totalPagar);
+        
+        for (Producto producto : productosFactura) {
+        	System.out.println(" - Producto:");
+        	System.out.println("  - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
+        }
+        System.out.println();
+        System.out.println("Total a pagar con descuento:                          " + totalPagar);
     }
 }
