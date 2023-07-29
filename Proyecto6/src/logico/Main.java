@@ -1,7 +1,5 @@
 package logico;
 
-import java.util.ArrayList;
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,6 +12,10 @@ public class Main {
 			
 			for (Combo combo : tienda.getTiendaCombos()) {
 				tienda.AgregarCombo(combo);
+			}
+			
+			for (Cliente cliente : tienda.getTiendaClientes()) {
+				tienda.AgregarCliente(cliente);
 			}
 		
 		//PROCESADORES:
@@ -46,21 +48,29 @@ public class Main {
 		Producto dd4 = new DiscoDuro("Kingston", "Kingston SSD", 1319, 100, "00000010", "DiscoDuro", "240GB", "SATA");
 		
 		//COMBOS:
+		
 		Combo combo1 = new Combo("Ryzen 5600x + MPG B550 + G.Skill 32GB x2", mp4, tm4, ram4, ram4, null, null);
 		Combo combo2 = new Combo("Z790 + Vengeance RGB DDR5 x2", tm1, ram1, ram1, null, null, null);
 		Combo combo3 = new Combo("i7 6700k + SAMSUNG 870 EVO x2 + B365M DS3H", mp1, dd2, dd2, tm5, null, null);
 		
+		//METODO PARA BUSCAR PRODUCTO POR NUMERO DE SERIE:
 		
-		//tienda.BuscarProducto("00000003");
+	    tienda.BuscarProducto("00000003");
+	    
+	    //CLIENTES:
 
 		Cliente c1 = new Cliente("Luis", "Gonzalez", "Avenida Estrella Sadhalá", "8092788917");
-		tienda.AgregarCliente(c1);
+		Cliente c2 = new Cliente("Manuel", "Lopez", "Barrio Libertad", "8492218375");
 		
 		c1.agregarProductoAlCarrito(ram1, 2);
 		c1.agregarProductoAlCarrito(tm1, 1);
 		c1.agregarProductoAlCarrito(mp1, 1);
+		
 		c1.agregarComboAlCarrito(combo1, 1);
 		c1.agregarComboAlCarrito(combo2, 1);
+		
+		c1.verCarritoCompleto2();
+		
 		c1.realizarCompra();
 		
 	

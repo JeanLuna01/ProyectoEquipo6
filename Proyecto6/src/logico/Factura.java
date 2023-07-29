@@ -46,7 +46,7 @@ public class Factura {
     }
 
     public void imprimirFactura() {
-        System.out.println("Factura del cliente:");
+        System.out.println("FACTURA DEL CLIENTE");
         System.out.println();
         for (Combo combo : combosFactura) {
             System.out.println(" - Paquete Completo:");

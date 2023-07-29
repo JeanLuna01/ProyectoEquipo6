@@ -9,7 +9,7 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private ArrayList<Factura> Myfacturas;
-    private ArrayList<Producto> Carrito;
+    private ArrayList<Producto> ProductosCarrito;
     private ArrayList<Combo> CombosCarrito;
 
     public Cliente(String nombre, String apellido, String direccion, String telefono) {
@@ -17,7 +17,7 @@ public class Cliente {
         this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.Carrito = new ArrayList<Producto>();
+        this.ProductosCarrito = new ArrayList<Producto>();
         this.Myfacturas = new ArrayList<Factura>();
         this.CombosCarrito = new ArrayList<Combo>();
     }
@@ -59,11 +59,11 @@ public class Cliente {
     }
 
     public ArrayList<Producto> getCarrito() {
-        return Carrito;
+        return ProductosCarrito;
     }
 
-    public void setCarrito(ArrayList<Producto> carrito) {
-        this.Carrito = carrito;
+    public void setProductosCarrito(ArrayList<Producto> carrito) {
+        this.ProductosCarrito = carrito;
     }
 
     public void agregarFactura(Factura factura) {
@@ -76,7 +76,7 @@ public class Cliente {
 
     public void agregarProductoAlCarrito(Producto producto, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
-            Carrito.add(producto);
+            ProductosCarrito.add(producto);
 }
     }
     
@@ -92,7 +92,7 @@ public class Cliente {
         	f1.agregarCombo(combo);
         }
         
-        for (Producto producto : Carrito) {
+        for (Producto producto : ProductosCarrito) {
             f1.agregarProducto(producto);
         }
 
@@ -100,5 +100,52 @@ public class Cliente {
 
         agregarFactura(f1);
     }
+    
+    public void verCarritoCompleto() {
+    	System.out.println("CARRITO");
+    	System.out.println();
+		System.out.println(" - Combos agregados:");
+		System.out.println();
+    	for (Combo combo : CombosCarrito) {
+    		System.out.println(combo.getNombreCombo());
+    	}
+    	System.out.println();
+    	System.out.println(" - Productos agregados:");
+    	System.out.println();
+    	for(Producto producto : ProductosCarrito) {
+    		System.out.println(producto.getModelo());
+    	}
+    	System.out.println();
+    }
+    
+    public void verCarritoCompleto2() {
+    	System.out.println("CARRITO");
+    	System.out.println();
+		System.out.println(" - Combos agregados:");
+		System.out.println();
+		int i=-1;
+		for(Combo combo : CombosCarrito) {
+			i++;
+		}
+		while(i>=0) {
+			System.out.println(CombosCarrito.get(i).getNombreCombo());
+			i--;
+		}
+		i=-1;
+		System.out.println();
+    	System.out.println(" - Productos agregados:");
+    	System.out.println();
+    	for(Producto producto : ProductosCarrito) {
+    		i++;
+    	}
+    	while(i>=0) {
+    		System.out.println(ProductosCarrito.get(i).getModelo());
+    		i--;
+    	}
+    	System.out.println();
+    }
+   
 }
+    	 
+
 
