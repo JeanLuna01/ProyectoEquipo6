@@ -90,35 +90,22 @@ public class Cliente {
         Factura f1 = new Factura(new ArrayList<Combo>(), new ArrayList<Producto>());
         for(Combo combo : CombosCarrito) {
         	f1.agregarCombo(combo);
+        	for(Producto producto : combo.getProductosCombo()) {
+        		producto.setCantidadDisp(producto.getCantidadDisp()-1);
+        	}
         }
         
         for (Producto producto : ProductosCarrito) {
             f1.agregarProducto(producto);
+            producto.setCantidadDisp(producto.getCantidadDisp()-1);
         }
 
         f1.imprimirFactura();
-
         agregarFactura(f1);
     }
+
     
     public void verCarritoCompleto() {
-    	System.out.println("CARRITO");
-    	System.out.println();
-		System.out.println(" - Combos agregados:");
-		System.out.println();
-    	for (Combo combo : CombosCarrito) {
-    		System.out.println(combo.getNombreCombo());
-    	}
-    	System.out.println();
-    	System.out.println(" - Productos agregados:");
-    	System.out.println();
-    	for(Producto producto : ProductosCarrito) {
-    		System.out.println(producto.getModelo());
-    	}
-    	System.out.println();
-    }
-    
-    public void verCarritoCompleto2() {
     	System.out.println("CARRITO");
     	System.out.println();
 		System.out.println(" - Combos agregados:");

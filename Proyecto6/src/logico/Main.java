@@ -55,7 +55,7 @@ public class Main {
 		
 		//METODO PARA BUSCAR PRODUCTO POR NUMERO DE SERIE:
 		
-	    tienda.BuscarProducto("00000003");
+
 	    
 	    //CLIENTES:
 
@@ -69,11 +69,9 @@ public class Main {
 		c1.agregarComboAlCarrito(combo1, 1);
 		c1.agregarComboAlCarrito(combo2, 1);
 		
-		c1.verCarritoCompleto2();
+		c1.verCarritoCompleto();
 		
 		c1.realizarCompra();
-		
-	
 
 	}
 
