@@ -10,6 +10,7 @@ public class Cliente {
     private String telefono;
     private ArrayList<Factura> Myfacturas;
     private ArrayList<Producto> Carrito;
+    private ArrayList<Combo> CombosCarrito;
 
     public Cliente(String nombre, String apellido, String direccion, String telefono) {
         this.nombre = nombre;
@@ -18,6 +19,7 @@ public class Cliente {
         this.telefono = telefono;
         this.Carrito = new ArrayList<Producto>();
         this.Myfacturas = new ArrayList<Factura>();
+        this.CombosCarrito = new ArrayList<Combo>();
     }
 
     public String getNombre() {
@@ -72,14 +74,24 @@ public class Cliente {
         Myfacturas.remove(factura);
     }
 
-    public void agregarAlCarrito(Producto producto, int cantidad) {
+    public void agregarProductoAlCarrito(Producto producto, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             Carrito.add(producto);
 }
     }
+    
+    public void agregarComboAlCarrito(Combo combo, int cantidad) {
+    	for (int i = 0; i < cantidad; i++) {
+    		CombosCarrito.add(combo);
+    	}
+    }
 
     public void realizarCompra() {
         Factura f1 = new Factura(new ArrayList<Combo>(), new ArrayList<Producto>());
+        for(Combo combo : CombosCarrito) {
+        	f1.agregarCombo(combo);
+        }
+        
         for (Producto producto : Carrito) {
             f1.agregarProducto(producto);
         }

@@ -7,12 +7,10 @@ public class Combo {
 	private String nombreCombo;
     private ArrayList<Producto> productosCombo;
     private double total;
-    private Producto producto1;
 
     public Combo(String nombreCombo, Producto producto1, Producto producto2, Producto producto3, Producto producto4, Producto producto5, Producto producto6) {
     	productosCombo = new ArrayList<Producto>();
     	this.nombreCombo = nombreCombo;
-    	this.producto1 = producto1;
     	productosCombo.add(producto1);
     	productosCombo.add(producto2);
     	productosCombo.add(producto3);
@@ -28,14 +26,6 @@ public class Combo {
         calcularTotal();
     }
 
-    public Producto getProducto1() {
-		return producto1;
-	}
-
-	public void setProducto1(Producto producto1) {
-		this.producto1 = producto1;
-	}
-
 	public String getNombreCombo() {
 		return nombreCombo;
 	}
@@ -44,11 +34,11 @@ public class Combo {
 		this.nombreCombo = nombreCombo;
 	}
 
-	public ArrayList<Producto> getProductosPaquete() {
+	public ArrayList<Producto> getProductosCombo() {
         return productosCombo;
     }
 
-    public void setProductosPaquete(ArrayList<Producto> productosPaquete) {
+    public void setProductosCombo(ArrayList<Producto> productosPaquete) {
         this.productosCombo = new ArrayList<Producto>(productosPaquete);
         calcularTotal();
     }

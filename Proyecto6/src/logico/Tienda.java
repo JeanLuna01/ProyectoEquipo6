@@ -40,11 +40,11 @@ public class Tienda {
         TiendaProductos = tiendaProductos;
     }
 
-    public ArrayList<Combo> getTiendaPaquetesCompletos() {
+    public ArrayList<Combo> getTiendaCombos() {
         return TiendaCombos;
     }
 
-    public void setTiendaPaquetesCompletos(ArrayList<Combo> tiendaPaquetesCompletos) {
+    public void setTiendaCombos(ArrayList<Combo> tiendaPaquetesCompletos) {
         TiendaCombos = tiendaPaquetesCompletos;
     }
 

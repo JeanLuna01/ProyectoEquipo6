@@ -25,7 +25,7 @@ public class Factura {
         return totalPagar;
     }
 
-    public void agregarPaqueteCompleto(Combo combo) {
+    public void agregarCombo(Combo combo) {
         combosFactura.add(combo);
         calcularTotalPagar();
     }
@@ -47,12 +47,15 @@ public class Factura {
 
     public void imprimirFactura() {
         System.out.println("Factura del cliente:");
+        System.out.println();
         for (Combo combo : combosFactura) {
             System.out.println(" - Paquete Completo:");
-            for (Producto producto : combo.getProductosPaquete()) {
+            for (Producto producto : combo.getProductosCombo()) {
                 System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
             }
-            System.out.println("   - Precio con descuento: " + combo.getDescuentoCombo());
+            System.out.println();
+            System.out.println("   - Precio con descuento:             " + combo.getDescuentoCombo());
+            System.out.println();
         }
         
         for (Producto producto : productosFactura) {
