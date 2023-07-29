@@ -77,7 +77,17 @@ public class Cliente {
     public void agregarProductoAlCarrito(Producto producto, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             ProductosCarrito.add(producto);
-}
+        }
+    }
+    
+    public void eliminarProductoDelCarrito(Producto producto, int cantidad) {
+    	if(!(ProductosCarrito.contains(producto))) {
+    		System.out.println("Este producto no existe en el carrito.");
+    		return;
+    	}
+    	for (int i = 0 ; i < cantidad ; i++) {
+    	ProductosCarrito.remove(producto);
+    	}
     }
     
     public void agregarComboAlCarrito(Combo combo, int cantidad) {
@@ -99,9 +109,11 @@ public class Cliente {
             f1.agregarProducto(producto);
             producto.setCantidadDisp(producto.getCantidadDisp()-1);
         }
-
+      
         f1.imprimirFactura();
         agregarFactura(f1);
+        CombosCarrito.removeAll(CombosCarrito);
+        ProductosCarrito.removeAll(ProductosCarrito);
     }
 
     
@@ -132,6 +144,31 @@ public class Cliente {
     	System.out.println();
     }
    
+public void VerFacturas() {
+	System.out.println("FACTURAS DEL CLIENTE");
+	System.out.println();
+	for (Factura factura : Myfacturas) {
+		System.out.println("FACTURA");
+        System.out.println();
+        for (Combo combo : factura.getCombosFactura()) {
+            System.out.println(" - Combo:");
+            for (Producto producto : combo.getProductosCombo()) {
+                System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
+            }
+            System.out.println();
+            System.out.println("   - Precio con descuento:             " + combo.getDescuentoCombo());
+            System.out.println();
+        }
+        
+        for (Producto producto : factura.getProductosFactura()) {
+        	System.out.println(" - Producto:");
+        	System.out.println("  - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
+        }
+        System.out.println();
+        System.out.println("Total a pagar con descuento:                          " + factura.getTotalPagar());
+    }
+		
+	}
 }
     	 
 

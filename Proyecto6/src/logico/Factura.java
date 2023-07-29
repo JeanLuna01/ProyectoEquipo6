@@ -13,7 +13,7 @@ public class Factura {
         calcularTotalPagar();
     }
 
-    public ArrayList<Combo> getPaquetesCompletosFactura() {
+    public ArrayList<Combo> getCombosFactura() {
         return combosFactura;
     }
 
@@ -49,7 +49,7 @@ public class Factura {
         System.out.println("FACTURA DEL CLIENTE");
         System.out.println();
         for (Combo combo : combosFactura) {
-            System.out.println(" - Paquete Completo:");
+            System.out.println(" - Combo:");
             for (Producto producto : combo.getProductosCombo()) {
                 System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
             }
@@ -66,3 +66,5 @@ public class Factura {
         System.out.println("Total a pagar con descuento:                          " + totalPagar);
     }
 }
+
+

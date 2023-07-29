@@ -87,6 +87,10 @@ public class Main {
 		c1.verCarritoCompleto();
 		
 		c1.realizarCompra();
+		
+		c1.verCarritoCompleto();
+		
+		c1.VerFacturas();
 
 	}
 
