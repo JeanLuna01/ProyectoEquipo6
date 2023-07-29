@@ -88,11 +88,13 @@ public class Tienda {
                 System.out.println("Precio: " + producto.getPrecio());
                 System.out.println("Cantidad Disponible: " + producto.getCantidadDisp());
                 System.out.println("Tipo: " + producto.getTipo());
+                System.out.println();
                 return;
             }
         }
         System.out.println("Producto no encontrado.");
     }
+    
 
     public void MostrarProductoDisp() {
         for (Producto producto : TiendaProductos) {
