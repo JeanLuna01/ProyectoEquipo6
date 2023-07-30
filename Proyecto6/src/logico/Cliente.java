@@ -91,6 +91,16 @@ public class Cliente {
     		CombosCarrito.add(combo);
     	}
     }
+    
+    public void eliminarComboDelCarrito(Combo combo, int cantidad) {
+    	if(!(CombosCarrito.contains(combo))) {
+    		System.out.println("Este combo no existe en el carrito.");
+    		return;
+    	}
+    	for (int i = 0 ; i < cantidad ; i++) {
+    		CombosCarrito.remove(combo);
+    	}
+    }
 
     public void realizarCompra() {
         Factura f1 = new Factura(new ArrayList<Combo>(), new ArrayList<Producto>());

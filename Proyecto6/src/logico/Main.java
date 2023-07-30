@@ -95,6 +95,7 @@ public class Main {
 		
 		c2.agregarComboAlCarrito(combo2, 1);
 		c2.agregarProductoAlCarrito(ram2, 2);
+		c2.eliminarComboDelCarrito(combo2, 1);
 		c2.realizarCompra();
 		
 		c2.VerFacturas();
