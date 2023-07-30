@@ -6,15 +6,17 @@ public class Cliente {
 
     private String nombre;
     private String apellido;
+    private String cedula;
     private String direccion;
     private String telefono;
     private ArrayList<Factura> Myfacturas;
     private ArrayList<Producto> ProductosCarrito;
     private ArrayList<Combo> CombosCarrito;
 
-    public Cliente(String nombre, String apellido, String direccion, String telefono) {
+    public Cliente(String nombre, String apellido, String cedula, String direccion, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.cedula = cedula;
         this.direccion = direccion;
         this.telefono = telefono;
         this.ProductosCarrito = new ArrayList<Producto>();
@@ -30,7 +32,15 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
+    public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getApellido() {
         return apellido;
     }
 
@@ -104,19 +114,31 @@ public class Cliente {
 
     public void realizarCompra() {
         Factura f1 = new Factura(new ArrayList<Combo>(), new ArrayList<Producto>());
+        int i = 0;
+        int c = 0;
         for(Combo combo : CombosCarrito) {
+        	for (i = 0 ; i < CombosCarrito.size() ; i++) {
         	f1.agregarCombo(combo);
         	for(Producto producto : combo.getProductosCombo()) {
         		producto.setCantidadDisp(producto.getCantidadDisp()-1);
         	}
         }
-        
-        for (Producto producto : ProductosCarrito) {
-            f1.agregarProducto(producto);
-            producto.setCantidadDisp(producto.getCantidadDisp()-1);
+        	
         }
         
-        System.out.println("Cliente: " + nombre + " " + apellido);
+        for (Producto producto : ProductosCarrito) {
+        	for (c = 0 ; c < ProductosCarrito.size() ; c++) {
+            f1.agregarProducto(producto);
+            producto.setCantidadDisp(producto.getCantidadDisp()-1);
+        	}
+        }
+        
+        if (i == 0 && c == 0) {
+        	System.out.println("El carrito está vacío");
+        	return;
+        }
+        
+        System.out.println("Cliente: " + cedula);
         f1.imprimirFactura();
         
         agregarFactura(f1);
@@ -153,7 +175,7 @@ public class Cliente {
     }
    
 public void VerFacturas() {
-	System.out.println("                             FACTURAS DEL CLIENTE " + nombre + " " + apellido);
+	System.out.println("                             FACTURAS DEL CLIENTE " + cedula);
 	System.out.println();
 	for (Factura factura : Myfacturas) {
 		factura.imprimirFactura();

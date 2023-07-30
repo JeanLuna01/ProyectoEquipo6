@@ -68,8 +68,8 @@ public class Main {
 
 	    //CLIENTES:
 
-		Cliente c1 = new Cliente("Luis", "Gonzalez", "Avenida Estrella Sadhalá", "8092788917");
-		Cliente c2 = new Cliente("Juan", "Lopez", "Valle Verde", "8492878311");
+		Cliente c1 = new Cliente("Luis", "Gonzalez", "40310091705", "Avenida Estrella Sadhalá", "8092788917");
+		Cliente c2 = new Cliente("Juan", "Lopez", "40211239802", "Valle Verde", "8492878311");
 		
 		tienda.AgregarCliente(c1);
 		tienda.AgregarCliente(c2);
@@ -79,26 +79,9 @@ public class Main {
 		tienda.BuscarProducto("00000010");
 		
 		//PRUEBA DE METODOS
-
-		c1.agregarProductoAlCarrito(ram1, 2);
-		c1.agregarProductoAlCarrito(tm1, 1);
-		c1.agregarProductoAlCarrito(mp1, 1);
-		
-		c1.agregarComboAlCarrito(combo1, 1);
-		c1.agregarComboAlCarrito(combo2, 1);
+	
 		c1.realizarCompra();
-		
-		c1.agregarComboAlCarrito(combo3, 3);
-		c1.realizarCompra();
-		
-		c1.VerFacturas();
-		
-		c2.agregarComboAlCarrito(combo2, 1);
-		c2.agregarProductoAlCarrito(ram2, 2);
-		c2.eliminarComboDelCarrito(combo2, 1);
-		c2.realizarCompra();
-		
-		c2.VerFacturas();
+	
 
 	}
 
