@@ -79,6 +79,15 @@ public class Tienda {
             System.out.println("El cliente no existe en la tienda.");
         }
     }
+    
+    public void AgregarFactura(Factura factura) {
+    	Cliente cliente = null;
+    	TiendaFacturas.addAll(cliente.getFacturas());
+    }
+    
+    public void EliminarFactura(Factura factura) {
+    	TiendaFacturas.remove(factura);
+    }
 
     public void BuscarProducto(String numeroSerie) {
         for (Producto producto : TiendaProductos) {
@@ -102,6 +111,17 @@ public class Tienda {
                 System.out.println(producto.getModelo());
             }
         }
+    }
+    
+    public void VerTodasLasFacturas() {
+    	System.out.println("TODAS LAS FACTURAS:");
+    	System.out.println();
+    	for (Cliente cliente : TiendaClientes) {
+    		TiendaFacturas.addAll(cliente.getFacturas());
+    	}
+    	for (Factura factura : TiendaFacturas) {
+    		factura.imprimirFactura();
+    	}
     }
 }
 

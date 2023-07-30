@@ -65,10 +65,7 @@ public class Main {
 		tienda.AgregarCombo(combo1);
 		tienda.AgregarCombo(combo2);
 		tienda.AgregarCombo(combo3);
-		
 
-	    tienda.BuscarProducto("00000002");
-	    
 	    //CLIENTES:
 
 		Cliente c1 = new Cliente("Luis", "Gonzalez", "Avenida Estrella Sadhalá", "8092788917");
@@ -77,20 +74,30 @@ public class Main {
 		tienda.AgregarCliente(c1);
 		tienda.AgregarCliente(c2);
 		
+		//METODO PARA BUSCAR PRODUCTOS POR NUMERO DE SERIE
+		
+		tienda.BuscarProducto("00000010");
+		
+		//PRUEBA DE METODOS
+
 		c1.agregarProductoAlCarrito(ram1, 2);
 		c1.agregarProductoAlCarrito(tm1, 1);
 		c1.agregarProductoAlCarrito(mp1, 1);
 		
 		c1.agregarComboAlCarrito(combo1, 1);
 		c1.agregarComboAlCarrito(combo2, 1);
-		
-		c1.verCarritoCompleto();
-		
 		c1.realizarCompra();
 		
-		c1.verCarritoCompleto();
+		c1.agregarComboAlCarrito(combo3, 3);
+		c1.realizarCompra();
 		
 		c1.VerFacturas();
+		
+		c2.agregarComboAlCarrito(combo2, 1);
+		c2.agregarProductoAlCarrito(ram2, 2);
+		c2.realizarCompra();
+		
+		c2.VerFacturas();
 
 	}
 

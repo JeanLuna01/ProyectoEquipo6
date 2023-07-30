@@ -49,7 +49,7 @@ public class Factura {
         System.out.println("FACTURA DEL CLIENTE");
         System.out.println();
         for (Combo combo : combosFactura) {
-            System.out.println(" - Combo:");
+            System.out.println(" - Combo: " + combo.getNombreCombo());
             for (Producto producto : combo.getProductosCombo()) {
                 System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
             }
@@ -64,6 +64,11 @@ public class Factura {
         }
         System.out.println();
         System.out.println("Total a pagar con descuento:                          " + totalPagar);
+        System.out.println();
+        System.out.println("---------------------------------------------------------------------------");
+    	System.out.println();
+        
+        
     }
 }
 

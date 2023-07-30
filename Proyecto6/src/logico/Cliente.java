@@ -70,10 +70,6 @@ public class Cliente {
         Myfacturas.add(factura);
     }
 
-    public void eliminarFactura(Factura factura) {
-        Myfacturas.remove(factura);
-    }
-
     public void agregarProductoAlCarrito(Producto producto, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             ProductosCarrito.add(producto);
@@ -109,8 +105,10 @@ public class Cliente {
             f1.agregarProducto(producto);
             producto.setCantidadDisp(producto.getCantidadDisp()-1);
         }
-      
+        
+        System.out.println("Cliente: " + nombre + " " + apellido);
         f1.imprimirFactura();
+        
         agregarFactura(f1);
         CombosCarrito.removeAll(CombosCarrito);
         ProductosCarrito.removeAll(ProductosCarrito);
@@ -145,29 +143,12 @@ public class Cliente {
     }
    
 public void VerFacturas() {
-	System.out.println("FACTURAS DEL CLIENTE");
+	System.out.println("                             FACTURAS DEL CLIENTE " + nombre + " " + apellido);
 	System.out.println();
 	for (Factura factura : Myfacturas) {
-		System.out.println("FACTURA");
-        System.out.println();
-        for (Combo combo : factura.getCombosFactura()) {
-            System.out.println(" - Combo:");
-            for (Producto producto : combo.getProductosCombo()) {
-                System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
-            }
-            System.out.println();
-            System.out.println("   - Precio con descuento:             " + combo.getDescuentoCombo());
-            System.out.println();
-        }
-        
-        for (Producto producto : factura.getProductosFactura()) {
-        	System.out.println(" - Producto:");
-        	System.out.println("  - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
-        }
-        System.out.println();
-        System.out.println("Total a pagar con descuento:                          " + factura.getTotalPagar());
-    }
-		
+		factura.imprimirFactura();
+	}
+	
 	}
 }
     	 
