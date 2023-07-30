@@ -81,8 +81,7 @@ public class Tienda {
     }
     
     public void AgregarFactura(Factura factura) {
-    	Cliente cliente = null;
-    	TiendaFacturas.addAll(cliente.getFacturas());
+    	TiendaFacturas.add(factura);
     }
     
     public void EliminarFactura(Factura factura) {
