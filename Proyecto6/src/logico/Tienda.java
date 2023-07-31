@@ -1,126 +1,181 @@
 package logico;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Tienda {
+public class Tienda implements Serializable {
 
-    private ArrayList<Cliente> TiendaClientes;
-    private ArrayList<Factura> TiendaFacturas;
-    private ArrayList<Producto> TiendaProductos;
-    private ArrayList<Combo> TiendaCombos;
+	private static final long serialVersionUID = -8956569334515007357L;
+	private ArrayList<Producto>productos;
+	private ArrayList<Cliente>misClientes;
+	private ArrayList<Factura>misFacturas;
+	private ArrayList<Combo>misCombos;
+	public static int id = 1;
+	public static Tienda tienda=null;
 
-    public Tienda() {
-        TiendaClientes = new ArrayList<Cliente>();
-        TiendaFacturas = new ArrayList<Factura>();
-        TiendaProductos = new ArrayList<Producto>();
-        TiendaCombos = new ArrayList<Combo>();
-    }
+	private Tienda() {
+		super();
+		productos = new ArrayList<Producto>();
+		misClientes = new ArrayList<>();
+		misFacturas = new ArrayList<>();	
+		misCombos = new ArrayList<Combo>();
 
-    public ArrayList<Cliente> getTiendaClientes() {
-        return TiendaClientes;
-    }
+	}
 
-    public void setTiendaClientes(ArrayList<Cliente> tiendaClientes) {
-        TiendaClientes = tiendaClientes;
-    }
+	public static Tienda getInstance() {
+		if (tienda == null) {
+			tienda = new Tienda();
+		}
+		return tienda;
+	}
 
-    public ArrayList<Factura> getTiendaFacturas() {
-        return TiendaFacturas;
-    }
+	public ArrayList<Producto> getMisComponentes() {
+		return productos;
+	}
 
-    public void setTiendaFacturas(ArrayList<Factura> tiendaFacturas) {
-        TiendaFacturas = tiendaFacturas;
-    }
+	public void setMisComponentes(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
 
-    public ArrayList<Producto> getTiendaProductos() {
-        return TiendaProductos;
-    }
+	public ArrayList<Cliente> getMisClientes() {
+		return misClientes;
+	}
 
-    public void setTiendaProductos(ArrayList<Producto> tiendaProductos) {
-        TiendaProductos = tiendaProductos;
-    }
+	public void setMisClientes(ArrayList<Cliente> misClientes) {
+		this.misClientes = misClientes;
+	}
 
-    public ArrayList<Combo> getTiendaCombos() {
-        return TiendaCombos;
-    }
+	public ArrayList<Factura> getMisFacturas() {
+		return misFacturas;
+	}
 
-    public void setTiendaCombos(ArrayList<Combo> tiendaPaquetesCompletos) {
-        TiendaCombos = tiendaPaquetesCompletos;
-    }
+	public void setMisFacturas(ArrayList<Factura> misFacturas) {
+		this.misFacturas = misFacturas;
+	}	
 
-    public void AgregarProducto(Producto producto) {
-        TiendaProductos.add(producto);
-    }
+	public void RegistrarComponente(Producto produc){
+    productos.add(produc);
+		id++;
+	}
 
-    public void EliminarProducto(Producto producto) {
-        TiendaProductos.remove(producto);
-    }
-    
-    public void AgregarCombo(Combo combo) {
-    	TiendaCombos.add(combo);
-    }
-    
-    public void EliminarCombo(Combo combo) {
-    	TiendaCombos.remove(combo);
-    }
+	public Cliente ClienteByCedula(String cedula) {
 
-    public void AgregarCliente(Cliente cliente) {
-        if (!TiendaClientes.contains(cliente)) {
-            TiendaClientes.add(cliente);
-        } else {
-            System.out.println("El cliente "+cliente.getNombre()+" ya existe en la tienda.");
-        }
-    }
+		for (Cliente cliente : misClientes) {
+			if (cliente.getCedula().equalsIgnoreCase(cedula)) {
+				return cliente;
+			}
+		}
 
-    public void EliminarCliente(Cliente cliente) {
-        if (TiendaClientes.contains(cliente)) {
-            TiendaClientes.remove(cliente);
-        } else {
-            System.out.println("El cliente no existe en la tienda.");
-        }
-    }
-    
-    public void AgregarFactura(Factura factura) {
-    	TiendaFacturas.add(factura);
-    }
-    
-    public void EliminarFactura(Factura factura) {
-    	TiendaFacturas.remove(factura);
-    }
+		return null;
+	}
 
-    public void BuscarProducto(String numeroSerie) {
-        for (Producto producto : TiendaProductos) {
-            if (producto.getNumeroSerie().equalsIgnoreCase(numeroSerie)) {
-                System.out.println("Marca: " + producto.getMarca());
-                System.out.println("Modelo: " + producto.getModelo());
-                System.out.println("Precio: " + producto.getPrecio());
-                System.out.println("Cantidad Disponible: " + producto.getCantidadDisp());
-                System.out.println("Tipo: " + producto.getTipo());
-                System.out.println();
-                return;
-            }
-        }
-        System.out.println("Producto no encontrado.");
-    }
-    
+	public void eliminarCliente(Cliente selected) {
+		misClientes.remove(selected);
+	}
 
-    public void MostrarProductoDisp() {
-        for (Producto producto : TiendaProductos) {
-            if (producto.getCantidadDisp() != 0) {
-                System.out.println(producto.getModelo());
-            }
-        }
-    }
-    
-    public void VerTodasLasFacturas() {
-    	System.out.println("TODAS LAS FACTURAS:");
-    	System.out.println();
-    	for (Cliente cliente : TiendaClientes) {
-    		TiendaFacturas.addAll(cliente.getFacturas());
-    	}
-    	for (Factura factura : TiendaFacturas) {
-    		factura.imprimirFactura();
-    	}
-    }
+	public Factura getFacturaByCodigo(String codigoFactura) {
+		for (Factura factura : misFacturas) {
+			if (factura.getCodigo().equalsIgnoreCase(codigoFactura)) {
+				return factura;
+			}
+		}
+		return null;
+	}
+
+	public void eliminarFactura(Factura selected) {
+		misFacturas.remove(selected);
+	}
+	
+	
+
+	public Producto ComponenteByCodigo(String idProducto) {
+
+		Producto prueba = null;
+		for (Producto producto : productos) {
+			if (producto.getId().equalsIgnoreCase(idProducto)) {
+				prueba = producto;
+			}
+		}
+		return prueba;
+	}
+
+	public void eliminarProducto(Producto selected) {
+		productos.remove(selected);
+	}
+
+
+	public Producto copiarComp (Producto selec) throws CloneNotSupportedException {
+		Producto aux = (Producto) selec.clone();
+		return aux;
+	}
+
+	public ArrayList<Producto> copiarArray () throws CloneNotSupportedException{
+
+		ArrayList<Producto> copia = new ArrayList<Producto>(productos.size());
+		for (Producto comp : productos) {
+			copia.add((Producto) comp.clone());
+		}
+		return copia;
+	}
+
+	public void registrarCliente(Cliente aux) {
+		misClientes.add(aux);
+	}
+
+	
+	public ArrayList<Combo> getMisCombos() {
+		return misCombos;
+	}
+
+	public void setMisCombos(ArrayList<Combo> misCombos) {
+		this.misCombos = misCombos;
+	}
+
+	public void agregarFactura(Factura nuevaFactura) {
+		misFacturas.add(nuevaFactura);
+	}
+
+
+	public static void setTienda(Tienda tienda) {
+		Tienda.tienda = tienda;
+	}
+	
+	public Combo buscarComboById(String id) {
+		for (Combo com : misCombos) {
+			if (com.getId().equalsIgnoreCase(id)) {
+				return com;
+			}
+		}
+		return null;
+	}
+	
+	public void eliminarCombo(Combo selected) {
+		misCombos.remove(selected);
+	}
+	
+	public void insertarCombo(Combo nuevoCombo) {
+		misCombos.add(nuevoCombo);	
+	}
+	public Combo CombobyCodigo(String idserial) {
+		for(Combo comb : misCombos) {
+			if(comb.getId().equalsIgnoreCase(idserial)) {
+				return comb;
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Combo> copiarArrayCombo() throws CloneNotSupportedException {
+		ArrayList<Combo> copia = new ArrayList<Combo>(misCombos.size());
+		for (Combo comb : misCombos) {
+			copia.add((Combo) comb.clone());
+
+		}
+
+		return copia;
+	}
+	public Combo copiarCombo (Combo selec) throws CloneNotSupportedException {
+		Combo aux = (Combo) selec.clone();
+		return aux;
+	}
 }
-

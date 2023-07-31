@@ -6,12 +6,12 @@ public class TarjetaMadre extends Producto {
 	private String tipoMemoriaRam;
 	private String tipoConexionesParaDiscoDuro;
 	
-	public TarjetaMadre(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo, String tipoConectorParaSocket, String tipoMemoriaRam, String tipoConexionesParaDiscoDuro) {
-		super(marca, modelo, precio, cantidadDisp, numeroSerie, tipo);
+	public TarjetaMadre(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String id,
+			String tipoConectorParaSocket, String tipoMemoriaRam, String tipoConexionesParaDiscoDuro) {
+		super(marca, modelo, precio, cantidadDisp, numeroSerie, id);
 		this.tipoConectorParaSocket = tipoConectorParaSocket;
 		this.tipoMemoriaRam = tipoMemoriaRam;
 		this.tipoConexionesParaDiscoDuro = tipoConexionesParaDiscoDuro;
-		
 	}
 
 	public String getTipoConectorParaSocket() {
@@ -37,6 +37,4 @@ public class TarjetaMadre extends Producto {
 	public void setTipoConexionesParaDiscoDuro(String tipoConexionesParaDiscoDuro) {
 		this.tipoConexionesParaDiscoDuro = tipoConexionesParaDiscoDuro;
 	}
-
-
 }

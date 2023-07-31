@@ -3,73 +3,60 @@ package logico;
 import java.util.ArrayList;
 
 public class Factura {
-    private ArrayList<Combo> combosFactura;
-    private ArrayList<Producto> productosFactura;
-    private double totalPagar;
+private String codigo;
+private String precioTotal;
+private Cliente cliente;
+private ArrayList<Producto> productos;
+private ArrayList<Combo>misCombos;
 
-    public Factura(ArrayList<Combo> combosFactura, ArrayList<Producto> productosFactura) {
-        this.combosFactura = combosFactura;
-        this.productosFactura = productosFactura;
-        calcularTotalPagar();
-    }
-
-    public ArrayList<Combo> getCombosFactura() {
-        return combosFactura;
-    }
-
-    public ArrayList<Producto> getProductosFactura() {
-        return productosFactura;
-    }
-
-    public double getTotalPagar() {
-        return totalPagar;
-    }
-
-    public void agregarCombo(Combo combo) {
-        combosFactura.add(combo);
-        calcularTotalPagar();
-    }
-
-    public void agregarProducto(Producto producto) {
-        productosFactura.add(producto);
-        calcularTotalPagar();
-    }
-
-    public void calcularTotalPagar() {
-        totalPagar = 0;
-        for (Combo combo : combosFactura) {
-            totalPagar += combo.getDescuentoCombo();
-        }
-        for (Producto producto : productosFactura) {
-            totalPagar += producto.getPrecio();
-        }
-    }
-
-    public void imprimirFactura() {
-        System.out.println("FACTURA DEL CLIENTE");
-        System.out.println();
-        for (Combo combo : combosFactura) {
-            System.out.println(" - Combo: " + combo.getNombreCombo());
-            for (Producto producto : combo.getProductosCombo()) {
-                System.out.println("   - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
-            }
-            System.out.println();
-            System.out.println("   - Precio con descuento:             " + combo.getDescuentoCombo());
-            System.out.println();
-        }
-        
-        for (Producto producto : productosFactura) {
-        	System.out.println(" - Producto:");
-        	System.out.println("  - " + producto.getMarca() + " " + producto.getModelo() + " - Precio: " + producto.getPrecio());
-        }
-        System.out.println();
-        System.out.println("Total a pagar con descuento:                          " + totalPagar);
-        System.out.println();
-        System.out.println("---------------------------------------------------------------------------");
-    	System.out.println();
-        
-        
-    }
+public Factura(String codigo, String precioTotal, Cliente cliente, ArrayList<Producto> productos,
+		ArrayList<Combo> misCombos) {
+	super();
+	this.codigo = codigo;
+	this.precioTotal = precioTotal;
+	this.cliente = cliente;
+	this.productos = productos;
+	this.misCombos = misCombos;
 }
 
+public String getCodigo() {
+	return codigo;
+}
 
+public void setCodigo(String codigo) {
+	this.codigo = codigo;
+}
+
+public String getPrecioTotal() {
+	return precioTotal;
+}
+
+public void setPrecioTotal(String precioTotal) {
+	this.precioTotal = precioTotal;
+}
+
+public Cliente getCliente() {
+	return cliente;
+}
+
+public void setCliente(Cliente cliente) {
+	this.cliente = cliente;
+}
+
+public ArrayList<Producto> getProductos() {
+	return productos;
+}
+
+public void setProductos(ArrayList<Producto> productos) {
+	this.productos = productos;
+}
+
+public ArrayList<Combo> getMisCombos() {
+	return misCombos;
+}
+
+public void setMisCombos(ArrayList<Combo> misCombos) {
+	this.misCombos = misCombos;
+}
+
+}

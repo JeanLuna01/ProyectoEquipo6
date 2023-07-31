@@ -2,21 +2,21 @@ package logico;
 
 public class Microprocesador extends Producto {
 	
-	private String velocidadProcesamientoEnMhzGhz;
+	private int velocidadProcesamientoEnMhzGhz;
 	private String tipoConexionOSocket;
 	
-	public Microprocesador(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie,
-			String tipo, String velocidadProcesamientoEnMhzGhz, String tipoConexionOSocket) {
-		super(marca, modelo, precio, cantidadDisp, numeroSerie, tipo);
+	public Microprocesador(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String id,
+			int velocidadProcesamientoEnMhzGhz, String tipoConexionOSocket) {
+		super(marca, modelo, precio, cantidadDisp, numeroSerie, id);
 		this.velocidadProcesamientoEnMhzGhz = velocidadProcesamientoEnMhzGhz;
 		this.tipoConexionOSocket = tipoConexionOSocket;
 	}
 
-	public String getVelocidadProcesamientoEnMhzGhz() {
+	public int getVelocidadProcesamientoEnMhzGhz() {
 		return velocidadProcesamientoEnMhzGhz;
 	}
 
-	public void setVelocidadProcesamientoEnMhzGhz(String velocidadProcesamientoEnMhzGhz) {
+	public void setVelocidadProcesamientoEnMhzGhz(int velocidadProcesamientoEnMhzGhz) {
 		this.velocidadProcesamientoEnMhzGhz = velocidadProcesamientoEnMhzGhz;
 	}
 
@@ -27,6 +27,5 @@ public class Microprocesador extends Producto {
 	public void setTipoConexionOSocket(String tipoConexionOSocket) {
 		this.tipoConexionOSocket = tipoConexionOSocket;
 	}
-
-
+	
 }

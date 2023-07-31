@@ -2,21 +2,21 @@ package logico;
 
 public class DiscoDuro extends Producto {
 	
-	private String capacidadAlmacenamiento;
+	private int capacidadAlmacenamiento;
 	private String tipoConexion;
 	
 	public DiscoDuro(String marca, String modelo, double precio, int cantidadDisp, String numeroSerie, String tipo,
-			String capacidadAlmacenamiento, String tipoConexion) {
+			int capacidadAlmacenamiento, String tipoConexion) {
 		super(marca, modelo, precio, cantidadDisp, numeroSerie, tipo);
 		this.capacidadAlmacenamiento = capacidadAlmacenamiento;
 		this.tipoConexion = tipoConexion;
 	}
 
-	public String getCapacidadAlmacenamiento() {
+	public int getCapacidadAlmacenamiento() {
 		return capacidadAlmacenamiento;
 	}
 
-	public void setCapacidadAlmacenamiento(String capacidadAlmacenamiento) {
+	public void setCapacidadAlmacenamiento(int capacidadAlmacenamiento) {
 		this.capacidadAlmacenamiento = capacidadAlmacenamiento;
 	}
 
