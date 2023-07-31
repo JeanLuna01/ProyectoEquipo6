@@ -38,3 +38,4 @@ public class TarjetaMadre extends Producto {
 		this.tipoConexionesParaDiscoDuro = tipoConexionesParaDiscoDuro;
 	}
 }
+	

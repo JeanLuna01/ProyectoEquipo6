@@ -140,42 +140,4 @@ public class Tienda implements Serializable {
 		Tienda.tienda = tienda;
 	}
 	
-	public Combo buscarComboById(String id) {
-		for (Combo com : misCombos) {
-			if (com.getId().equalsIgnoreCase(id)) {
-				return com;
-			}
-		}
-		return null;
-	}
-	
-	public void eliminarCombo(Combo selected) {
-		misCombos.remove(selected);
-	}
-	
-	public void insertarCombo(Combo nuevoCombo) {
-		misCombos.add(nuevoCombo);	
-	}
-	public Combo CombobyCodigo(String idserial) {
-		for(Combo comb : misCombos) {
-			if(comb.getId().equalsIgnoreCase(idserial)) {
-				return comb;
-			}
-		}
-		return null;
-	}
-
-	public ArrayList<Combo> copiarArrayCombo() throws CloneNotSupportedException {
-		ArrayList<Combo> copia = new ArrayList<Combo>(misCombos.size());
-		for (Combo comb : misCombos) {
-			copia.add((Combo) comb.clone());
-
-		}
-
-		return copia;
-	}
-	public Combo copiarCombo (Combo selec) throws CloneNotSupportedException {
-		Combo aux = (Combo) selec.clone();
-		return aux;
-	}
 }
