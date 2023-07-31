@@ -138,10 +138,16 @@ public class MAIN extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 1933, 953);
-		contentPane.add(lblNewLabel);
+		
+		JLabel lblImagen = new JLabel("New label");
+		lblImagen.setIcon(new ImageIcon("C:\\foto\\desktop-wallpaper-hi-tech-for-and-laptops-1920\u00D71080-technical-technical.jpg"));
+		lblImagen.setBounds(57, 13, 856, 620);
+		contentPane.add(lblImagen);
+		
+		JLabel lblasda = new JLabel("New label");
+		lblasda.setIcon(new ImageIcon("C:\\foto\\desktop-wallpaper-hi-tech-for-and-laptops-1920\u00D71080-technical-technical.jpg"));
+		lblasda.setBounds(901, 35, 848, 576);
+		contentPane.add(lblasda);
 	}
 }
 
